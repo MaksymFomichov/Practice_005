@@ -41,8 +41,8 @@ public class DataSheetSmartphone extends SuperDataSheet {
 
     public void show() {
         super.show();
-        System.out.println("operatingSystem " + operatingSystem);
-        System.out.println("screenDiagonal " + screenDiagonal);
-        System.out.println("workingHours " + workingHours);
+        System.out.println(" операционная система:      " + operatingSystem);
+        System.out.println(" диагональ экрана:          " + screenDiagonal + " дюйма");
+        System.out.println(" время работы от батареи:   " + workingHours + " часов");
     }
 }

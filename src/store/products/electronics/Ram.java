@@ -30,7 +30,7 @@ public class Ram {
 
 
     public void show() {
-        System.out.println("volume " + volume);
-        System.out.println("type " + type);
+        System.out.println("   объем:                    " + volume + " Мбайт");
+        System.out.println("   тип памяти:               " + type);
     }
 }

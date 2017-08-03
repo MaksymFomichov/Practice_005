@@ -29,9 +29,10 @@ public class SuperDataSheet {
     }
 
     public void show() {
+        System.out.println("ТЕХНИЧЕСКАЯ СПЕЦИФИКАЦИЯ");
+        System.out.println(" оперативная память:");
         ram.show();
+        System.out.println(" процессор:");
         processor.show();
-//        System.out.println("ram " + ram);
-//        System.out.println("processor " + processor);
     }
 }

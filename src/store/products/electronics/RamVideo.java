@@ -8,4 +8,6 @@ public class RamVideo extends Ram {
     public RamVideo(int memoryVolume, String memoryType) {
         super(memoryVolume, memoryType);
     }
+
+
 }

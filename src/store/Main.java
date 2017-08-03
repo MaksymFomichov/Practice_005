@@ -13,7 +13,7 @@ public class Main {
         dataSheetSmartphone.setOperatingSystem("Android");
         dataSheetSmartphone.setScreenDiagonal(25.1);
         dataSheetSmartphone.setWorkingHours(24);
-        dataSheetSmartphone.setRam(new Ram(256, "ddr1"));
+        dataSheetSmartphone.setRam(new Ram(2048, "DDD5"));
         dataSheetSmartphone.setProcessor(new Processor(10,1256));
         smartphone.setDataSheetSmartphone(dataSheetSmartphone);
         smartphone.setDescription("супер пупер смартфоне на андроид");

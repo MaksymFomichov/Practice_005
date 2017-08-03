@@ -29,7 +29,7 @@ public class Processor {
     }
 
     public void show() {
-        System.out.println("cores " + cores);
-        System.out.println("frequency " + frequency);
+        System.out.println("   кол-во ядер:             " + cores + " шт.");
+        System.out.println("   тактовая частота ядра:   " + frequency + " мГц");
     }
 }

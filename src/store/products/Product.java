@@ -19,11 +19,12 @@ public class Product {
     }
 
     public void show() {
-        System.out.println("id " + id);
-        System.out.println("name " + name);
-        System.out.println("quantity " + quantity);
-        System.out.println("description " + description);
-        System.out.println("price " + price);
+        System.out.println("ОБЩИЕ ДАННЫЕ");
+        System.out.println("  id:                        " + id);
+        System.out.println("  название:                  " + name);
+        System.out.println("  кол-во:                    " + quantity + " шт.");
+        System.out.println("  описание:                  " + description);
+        System.out.println("  цена:                      " + price + " уе");
     }
 
     public String getId() {
