@@ -19,12 +19,12 @@ public class Product {
     }
 
     public void show() {
-        System.out.println("ОБЩИЕ ДАННЫЕ");
-        System.out.println("  id:                        " + id);
-        System.out.println("  название:                  " + name);
-        System.out.println("  кол-во:                    " + quantity + " шт.");
-        System.out.println("  описание:                  " + description);
-        System.out.println("  цена:                      " + price + " уе");
+        System.out.println("------------ОБЩИЕ ДАННЫЕ--------------------------------------------------");
+        System.out.println(" id:                       " + id);
+        System.out.println(" название:                 " + name);
+        System.out.println(" кол-во:                   " + quantity + " шт.");
+        System.out.println(" описание:                 " + description);
+        System.out.println(" цена:                     " + price + " уе");
     }
 
     public String getId() {

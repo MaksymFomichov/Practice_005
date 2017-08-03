@@ -12,6 +12,14 @@ public class SuperDataSheet {
         this.processor = processor;
     }
 
+    public void show() {
+        System.out.println("\n-----------ТЕХНИЧЕСКАЯ СПЕЦИФИКАЦИЯ---------------------------------------");
+        System.out.println(" оперативная память:");
+        ram.show();
+        System.out.println(" процессор:");
+        processor.show();
+    }
+
     public Ram getRam() {
         return ram;
     }
@@ -26,13 +34,5 @@ public class SuperDataSheet {
 
     public void setProcessor(Processor processor) {
         this.processor = processor;
-    }
-
-    public void show() {
-        System.out.println("ТЕХНИЧЕСКАЯ СПЕЦИФИКАЦИЯ");
-        System.out.println(" оперативная память:");
-        ram.show();
-        System.out.println(" процессор:");
-        processor.show();
     }
 }

@@ -17,7 +17,7 @@ public class SuperElectronics extends Product{
     @Override
     public void show() {
         super.show();
-        System.out.println("  гарантийный срок:          " + guaranteePeriod + " дней");
+        System.out.println(" гарантийный срок:         " + guaranteePeriod + " дней");
     }
 
     public int getGuaranteePeriod() {

@@ -15,6 +15,14 @@ public class DataSheetSmartphone extends SuperDataSheet {
         this.workingHours = workingHours;
     }
 
+    @Override
+    public void show() {
+        super.show();
+        System.out.println(" операционная система:     " + operatingSystem);
+        System.out.println(" диагональ экрана:         " + screenDiagonal + " дюйма");
+        System.out.println(" время работы от батареи:  " + workingHours + " часов");
+    }
+
     public String getOperatingSystem() {
         return operatingSystem;
     }
@@ -37,12 +45,5 @@ public class DataSheetSmartphone extends SuperDataSheet {
 
     public void setWorkingHours(int workingHours) {
         this.workingHours = workingHours;
-    }
-
-    public void show() {
-        super.show();
-        System.out.println(" операционная система:      " + operatingSystem);
-        System.out.println(" диагональ экрана:          " + screenDiagonal + " дюйма");
-        System.out.println(" время работы от батареи:   " + workingHours + " часов");
     }
 }

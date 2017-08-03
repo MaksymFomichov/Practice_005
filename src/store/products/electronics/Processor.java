@@ -12,6 +12,11 @@ public class Processor {
         this.frequency = frequency;
     }
 
+    public void show() {
+        System.out.println("   кол-во ядер:            " + cores + " шт.");
+        System.out.println("   тактовая частота ядра:  " + frequency + " мГц");
+    }
+
     public int getCores() {
         return cores;
     }
@@ -26,10 +31,5 @@ public class Processor {
 
     public void setFrequency(int frequency) {
         this.frequency = frequency;
-    }
-
-    public void show() {
-        System.out.println("   кол-во ядер:             " + cores + " шт.");
-        System.out.println("   тактовая частота ядра:   " + frequency + " мГц");
     }
 }

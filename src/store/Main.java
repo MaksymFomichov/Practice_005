@@ -1,9 +1,6 @@
 package store;
 
-import store.products.electronics.DataSheetSmartphone;
-import store.products.electronics.Processor;
-import store.products.electronics.Ram;
-import store.products.electronics.Smartphone;
+import store.products.electronics.*;
 
 public class Main {
 
@@ -22,6 +19,17 @@ public class Main {
         smartphone.setName("sony");
         smartphone.setPrice(256.25);
         smartphone.setQuantity(546544);
-        smartphone.show();
+        //smartphone.show();
+
+        Computer computer = new Computer();
+        DataSheetComputer dataSheetComputer = new DataSheetComputer();
+        smartphone.setDescription("супер пупер компьютер");
+        smartphone.setGuaranteePeriod(365);
+        computer.setId("comp4654");
+        computer.setName("asus");
+        computer.setPrice(256.25);
+        computer.setQuantity(546544);
+        computer.show();
+
     }
 }

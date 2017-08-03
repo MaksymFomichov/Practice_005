@@ -12,6 +12,11 @@ public class Ram {
         this.type = memoryType;
     }
 
+    public void show() {
+        System.out.println("   объем:                  " + volume + " Мбайт");
+        System.out.println("   тип памяти:             " + type);
+    }
+
     public int getVolume() {
         return volume;
     }
@@ -26,11 +31,5 @@ public class Ram {
 
     public void setMemoryType(String memoryType) {
         this.type = memoryType;
-    }
-
-
-    public void show() {
-        System.out.println("   объем:                    " + volume + " Мбайт");
-        System.out.println("   тип памяти:               " + type);
     }
 }
