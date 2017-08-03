@@ -1,18 +1,25 @@
 package store.products.electronics;
 
 public class VideoCard extends Processor{
-    private RamVideo ramVideo;
+    private Ram ram;
 
-    public VideoCard(int cores, int frequency, RamVideo ramVideo) {
+    public VideoCard(int cores, int frequency, Ram ram) {
         super(cores, frequency);
-        this.ramVideo = ramVideo;
+        this.ram = ram;
     }
 
-    public RamVideo getRamVideo() {
-        return ramVideo;
+    @Override
+    public void show(){
+        super.show();
+        System.out.println("  оперативная память:");
+        ram.show();
     }
 
-    public void setRamVideo(RamVideo ramVideo) {
-        this.ramVideo = ramVideo;
+    public Ram getRam() {
+        return ram;
+    }
+
+    public void setRam(Ram ram) {
+        this.ram = ram;
     }
 }

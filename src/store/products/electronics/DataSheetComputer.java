@@ -10,6 +10,7 @@ public class DataSheetComputer extends SuperDataSheet {
     public void show(){
         super.show();
         System.out.println(" видео карта:");
+        System.out.println("  процессор:");
         videoCard.show();
     }
 
