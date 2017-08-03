@@ -7,9 +7,10 @@ public class Computer extends SuperElectronics{
        super();
    }
 
-    public Computer(String id, String name, int quantity, String description, double price, int guaranteePeriod, DataSheetComputer dataSheetComputer) {
-        super(id, name, quantity, description, price, guaranteePeriod);
-        this.dataSheetComputer = dataSheetComputer;
+    @Override
+    public void show(){
+       super.show();
+       dataSheetComputer.show();
     }
 
     public DataSheetComputer getDataSheetComputer() {

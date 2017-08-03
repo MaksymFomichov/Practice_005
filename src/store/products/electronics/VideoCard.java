@@ -3,9 +3,6 @@ package store.products.electronics;
 public class VideoCard extends Processor{
     private RamVideo ramVideo;
 
-    public VideoCard() {
-    }
-
     public VideoCard(int cores, int frequency, RamVideo ramVideo) {
         super(cores, frequency);
         this.ramVideo = ramVideo;

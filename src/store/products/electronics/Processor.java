@@ -4,9 +4,6 @@ public class Processor {
     private int cores;
     private int frequency;
 
-    public Processor() {
-    }
-
     public Processor(int cores, int frequency) {
         this.cores = cores;
         this.frequency = frequency;

@@ -6,14 +6,10 @@ public class DataSheetComputer extends SuperDataSheet {
     public DataSheetComputer() {
     }
 
-    public DataSheetComputer(Ram ram, Processor processor, VideoCard videoCard) {
-        super(ram, processor);
-        this.videoCard = videoCard;
-    }
-
     @Override
     public void show(){
         super.show();
+        System.out.println(" видео карта:");
         videoCard.show();
     }
 

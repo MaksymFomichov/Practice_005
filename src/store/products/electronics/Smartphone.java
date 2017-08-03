@@ -1,14 +1,16 @@
 package store.products.electronics;
 
-public class Smartphone extends SuperElectronics{
+public class Smartphone extends SuperElectronics {
     private DataSheetSmartphone dataSheetSmartphone;
 
     public Smartphone() {
         super();
     }
 
-    public Smartphone(String id, String name, int quantity, String description, double price, int guaranteePeriod) {
-        super(id, name, quantity, description, price, guaranteePeriod);
+    @Override
+    public void show() {
+        super.show();
+        dataSheetSmartphone.show();
     }
 
     public DataSheetSmartphone getDataSheetSmartphone() {
@@ -19,9 +21,5 @@ public class Smartphone extends SuperElectronics{
         this.dataSheetSmartphone = dataSheetSmartphone;
     }
 
-    @Override
-    public void show(){
-        super.show();
-        dataSheetSmartphone.show();
-    }
+
 }

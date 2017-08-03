@@ -8,13 +8,6 @@ public class DataSheetSmartphone extends SuperDataSheet {
     public DataSheetSmartphone() {
     }
 
-    public DataSheetSmartphone(Ram ram, Processor processor, String operatingSystem, double screenDiagonal, int workingHours) {
-        super(ram, processor);
-        this.operatingSystem = operatingSystem;
-        this.screenDiagonal = screenDiagonal;
-        this.workingHours = workingHours;
-    }
-
     @Override
     public void show() {
         super.show();
