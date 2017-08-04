@@ -1,8 +1,8 @@
 package store.products.food;
 
-public class Sweets extends SuperExpiration{
+public class SweetDrinks extends SuperExpiration{
 
-    public Sweets(){
+    public SweetDrinks(){
         super();
     }
 

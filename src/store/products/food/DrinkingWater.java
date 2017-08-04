@@ -1,8 +1,10 @@
 package store.products.food;
 
-public class Sweets extends SuperExpiration{
+import store.products.Product;
 
-    public Sweets(){
+public class DrinkingWater extends Product{
+
+    public DrinkingWater(){
         super();
     }
 
