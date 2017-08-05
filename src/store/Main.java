@@ -4,11 +4,17 @@ import store.products.clothes.Brand;
 import store.products.clothes.Clothes;
 import store.products.electronics.*;
 import store.products.food.*;
+import store.users.User;
+
+import java.util.ArrayList;
 
 public class Main {
 
     public static void main(String[] args) {
+        Store store = new Store();
+        ArrayList<Smartphone> smartphones = new ArrayList<>();
         Smartphone phone = new Smartphone();
+
         DataSheetSmartphone dsPhone = new DataSheetSmartphone();
         dsPhone.setOperatingSystem("Android");
         dsPhone.setScreenDiagonal(25.1);
@@ -22,7 +28,26 @@ public class Main {
         phone.setName("sony");
         phone.setPrice(256.25);
         phone.setQuantity(546544);
+
+        smartphones.add(phone);
+        store.addUser(new User("id001", "Максим", "m.fomichov@gmail.com", "12.01.2017", true));
+        store.addUser(new User("id002", "Петр", "defun_android@ukr.net", "31.02.2017", true));
+        store.addUser(new User("id003", "Алексей", "aleksey@gmail.com", "08.03.2017", false));
+        store.addUser(new User("id004", "Егор", "egor@gmail.com", "04.04.2017", false));
+        store.addUser(new User("id005", "Денис", "denis@gmail.com", "21.05.2017", false));
+        store.addUser(new User("id006", "Александр", "alex@gmail.com", "17.06.2017", false));
+        store.addUser(new User("id007", "Михаил", "miho@gmail.com", "11.07.2017", false));
+        store.sendMessage("Привет пользователи!!!");
+        //store.showUsers();
+
+
+        //System.out.println(store.getSmartphones().get(0).getName());
+        //store.getSmartphones().get(0).show();
         //phone.show();
+
+
+        //Store store1 = new Store();
+        //store.selectCategory();
 
         Computer comp = new Computer();
         DataSheetComputer dsComp = new DataSheetComputer();
@@ -81,7 +106,10 @@ public class Main {
         clothes.setQuantity(10);
         clothes.setDescription("супер пиджак");
         clothes.setBrand(new Brand("1985", "armani", 200, 50));
-        clothes.show();
+        //clothes.show();
+
+
+
 
     }
 }
