@@ -1,5 +1,6 @@
 package store;
 
+import store.products.Product;
 import store.products.clothes.Brand;
 import store.products.clothes.Clothes;
 import store.products.electronics.*;
@@ -7,6 +8,7 @@ import store.products.food.*;
 import store.users.User;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     private static Store store;
@@ -39,7 +41,7 @@ public class Main {
     }
 
     private static void addSmartphones() {
-        ArrayList<Smartphone> smartphones = new ArrayList<>();
+        List<Product> smartphones = new ArrayList<>();
 
         Smartphone phone1 = new Smartphone();
         DataSheetSmartphone dsPhone1 = new DataSheetSmartphone();
@@ -94,7 +96,7 @@ public class Main {
     }
 
     private static void addComputers() {
-        ArrayList<Computer> computers = new ArrayList<>();
+        List<Product> computers = new ArrayList<>();
 
         Computer comp1 = new Computer();
         DataSheetComputer dsComp1 = new DataSheetComputer();
@@ -143,7 +145,7 @@ public class Main {
     }
 
     private static void addVegetables() {
-        ArrayList<Vegetables> vegetables = new ArrayList<>();
+        List<Product> vegetables = new ArrayList<>();
 
         Vegetables tomato = new Vegetables();
         tomato.setExpirationDate(new ExpirationDate("05.02.2017", 2, 90));
@@ -180,7 +182,7 @@ public class Main {
     }
 
     private static void addClothes() {
-        ArrayList<Clothes> clothes = new ArrayList<>();
+        List<Product> clothes = new ArrayList<>();
 
         Clothes jacket = new Clothes();
         jacket.setId("c0001");
@@ -214,7 +216,7 @@ public class Main {
     }
 
     private static void addDrinkingWaters() {
-        ArrayList<DrinkingWater> drinkingWaters = new ArrayList<>();
+        List<Product> drinkingWaters = new ArrayList<>();
 
         DrinkingWater borjomi = new DrinkingWater();
         borjomi.setId("dw0001");
@@ -243,7 +245,7 @@ public class Main {
     }
 
     private static void addSweetDrinks() {
-        ArrayList<SweetDrinks> sweetDrinks = new ArrayList<>();
+        List<Product> sweetDrinks = new ArrayList<>();
 
         SweetDrinks cola = new SweetDrinks();
         cola.setExpirationDate(new ExpirationDate("25.07.2016", 10, 460));
@@ -277,7 +279,7 @@ public class Main {
     }
 
     private static void addSweets() {
-        ArrayList<Sweets> sweets = new ArrayList<>();
+        List<Product> sweets = new ArrayList<>();
 
         Sweets biscuit = new Sweets();
         biscuit.setExpirationDate(new ExpirationDate("29.05.2017", 15, 260));

@@ -1,29 +1,24 @@
 package store;
 
-import store.products.clothes.Clothes;
-import store.products.electronics.Computer;
-import store.products.electronics.Smartphone;
-import store.products.food.DrinkingWater;
-import store.products.food.SweetDrinks;
-import store.products.food.Sweets;
-import store.products.food.Vegetables;
+import store.products.Product;
 import store.users.SubscriptionManager;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Store extends SubscriptionManager {
     private double purse;
     private int typeProducts;
-    private ArrayList<Clothes> clothes = new ArrayList<>();
-    private ArrayList<Computer> computers = new ArrayList<>();
-    private ArrayList<Smartphone> smartphones = new ArrayList<>();
-    private ArrayList<DrinkingWater> drinkingWaters = new ArrayList<>();
-    private ArrayList<SweetDrinks> sweetDrinks = new ArrayList<>();
-    private ArrayList<Sweets> sweets = new ArrayList<>();
-    private ArrayList<Vegetables> vegetables = new ArrayList<>();
+    private List<Product> clothes = new ArrayList<>();
+    private List<Product> computers = new ArrayList<>();
+    private List<Product> smartphones = new ArrayList<>();
+    private List<Product> drinkingWaters = new ArrayList<>();
+    private List<Product> sweetDrinks = new ArrayList<>();
+    private List<Product> sweets = new ArrayList<>();
+    private List<Product> vegetables = new ArrayList<>();
 
-    public void startMenu(){
+    public void startMenu() {
         System.out.println("Выберите действие:");
         System.out.println("1 - найти товар");
         System.out.println("2 - принять товар");
@@ -63,25 +58,25 @@ public class Store extends SubscriptionManager {
 
         switch (checkInt()) {
             case 1:
-                typeProducts = 1;
+                searchName(smartphones, findNameProducts());
                 break;
             case 2:
-                typeProducts = 2;
+                searchName(computers, findNameProducts());
                 break;
             case 3:
-                typeProducts = 3;
+                searchName(vegetables, findNameProducts());
                 break;
             case 4:
-                typeProducts = 4;
+                searchName(sweets, findNameProducts());
                 break;
             case 5:
-                typeProducts = 5;
+                searchName(drinkingWaters, findNameProducts());
                 break;
             case 6:
-                typeProducts = 6;
+                searchName(sweetDrinks, findNameProducts());
                 break;
             case 7:
-                typeProducts = 7;
+                searchName(clothes, findNameProducts());
                 break;
             case 8:
                 startMenu();
@@ -90,66 +85,30 @@ public class Store extends SubscriptionManager {
                 System.out.println("Неверный выбор, повторите попытку!");
                 break;
         }
-        findNameProducts();
     }
 
-    private void findNameProducts() {
-        System.out.println("Введите имя продуката");
-        String name = String.valueOf(new Scanner(System.in).nextLine());
-        switch (typeProducts) {
-            case 1:
-                searchNameSmartphones(name);
-                break;
-            case 2:
-                searchNameComputers(name);
-                break;
-            case 3:
-                searchNameVegetables(name);
-                break;
-            case 4:
-                searchNameSweets(name);
-                break;
-            case 5:
-                searchNameDrinkingWaters(name);
-                break;
-            case 6:
-                searchNameSweetDrinks(name);
-                break;
-            case 7:
-                searchNameClothes(name);
-                break;
-        }
-    }
-
-    private void searchNameSmartphones(String name) {
-        for (int i = 0; i < smartphones.size(); i++) {
-            if(name.equals(smartphones.get(i).getName())){
-                smartphones.get(i).show();
-                break;
-            } else {
-                System.out.println("Товар с таким именем не найден!");
+    private void searchName(List<Product> list, String name) {
+        if (name.equals("0")) {
+            selectCategory();
+        } else {
+            for (int i = 0; i < list.size(); i++) {
+                if (name.equals(list.get(i).getName())) {
+                    list.get(i).show();
+                    System.out.println();
+                    searchName(list, findNameProducts());
+                    break;
+                }
             }
+            System.out.println("Товар с таким именем не найден!");
+            System.out.println();
+            searchName(list, findNameProducts());
         }
     }
 
-    private void searchNameComputers(String name) {
+    private String findNameProducts() {
+        System.out.println("Введите имя искомого продукта или 0 для выхода в предыдущее меню:");
+        return new Scanner(System.in).nextLine();
     }
-
-    private void searchNameSweets(String name) {
-    }
-
-    private void searchNameVegetables(String name) {
-    }
-
-    private void searchNameDrinkingWaters(String name) {
-    }
-
-    private void searchNameSweetDrinks(String name) {
-    }
-
-    private void searchNameClothes(String name) {
-    }
-
 
     // проверяем на целое число
     private int checkInt() {
@@ -168,59 +127,59 @@ public class Store extends SubscriptionManager {
         return value;
     }
 
-    public void setClothes(ArrayList<Clothes> clothes) {
-        this.clothes = clothes;
-    }
-
-    public void setComputers(ArrayList<Computer> computers) {
-        this.computers = computers;
-    }
-
-    public void setSmartphones(ArrayList<Smartphone> smartphones) {
-        this.smartphones = smartphones;
-    }
-
-    public void setDrinkingWaters(ArrayList<DrinkingWater> drinkingWaters) {
-        this.drinkingWaters = drinkingWaters;
-    }
-
-    public void setSweetDrinks(ArrayList<SweetDrinks> sweetDrinks) {
-        this.sweetDrinks = sweetDrinks;
-    }
-
-    public void setSweets(ArrayList<Sweets> sweets) {
-        this.sweets = sweets;
-    }
-
-    public void setVegetables(ArrayList<Vegetables> vegetables) {
-        this.vegetables = vegetables;
-    }
-
-    public ArrayList<Clothes> getClothes() {
+    public List<Product> getClothes() {
         return clothes;
     }
 
-    public ArrayList<Computer> getComputers() {
+    public void setClothes(List<Product> clothes) {
+        this.clothes = clothes;
+    }
+
+    public List<Product> getComputers() {
         return computers;
     }
 
-    public ArrayList<Smartphone> getSmartphones() {
+    public void setComputers(List<Product> computers) {
+        this.computers = computers;
+    }
+
+    public List<Product> getSmartphones() {
         return smartphones;
     }
 
-    public ArrayList<DrinkingWater> getDrinkingWaters() {
+    public void setSmartphones(List<Product> smartphones) {
+        this.smartphones = smartphones;
+    }
+
+    public List<Product> getDrinkingWaters() {
         return drinkingWaters;
     }
 
-    public ArrayList<SweetDrinks> getSweetDrinks() {
+    public void setDrinkingWaters(List<Product> drinkingWaters) {
+        this.drinkingWaters = drinkingWaters;
+    }
+
+    public List<Product> getSweetDrinks() {
         return sweetDrinks;
     }
 
-    public ArrayList<Sweets> getSweets() {
+    public void setSweetDrinks(List<Product> sweetDrinks) {
+        this.sweetDrinks = sweetDrinks;
+    }
+
+    public List<Product> getSweets() {
         return sweets;
     }
 
-    public ArrayList<Vegetables> getVegetables() {
+    public void setSweets(List<Product> sweets) {
+        this.sweets = sweets;
+    }
+
+    public List<Product> getVegetables() {
         return vegetables;
+    }
+
+    public void setVegetables(List<Product> vegetables) {
+        this.vegetables = vegetables;
     }
 }
