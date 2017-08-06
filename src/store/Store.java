@@ -12,8 +12,9 @@ import store.users.SubscriptionManager;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Store extends SubscriptionManager{
+public class Store extends SubscriptionManager {
     private double purse;
+    private int typeProducts;
     private ArrayList<Clothes> clothes = new ArrayList<>();
     private ArrayList<Computer> computers = new ArrayList<>();
     private ArrayList<Smartphone> smartphones = new ArrayList<>();
@@ -34,35 +35,82 @@ public class Store extends SubscriptionManager{
 
         switch (checkInt()) {
             case 1:
+                typeProducts = 1;
                 break;
-//            case 2:
-//                searchName(computers);
-//                break;
-//            case 3:
-//                searchName(vegetables);
-//                break;
-//            case 4:
-//                searchName(sweets);
-//                break;
-//            case 5:
-//                searchName(drinkingWaters);
-//                break;
-//            case 6:
-//                searchName(sweetDrinks);
-//                break;
-//            case 7:
-//                searchName(clothes);
-//                break;
+            case 2:
+                typeProducts = 2;
+                break;
+            case 3:
+                typeProducts = 3;
+                break;
+            case 4:
+                typeProducts = 4;
+                break;
+            case 5:
+                typeProducts = 5;
+                break;
+            case 6:
+                typeProducts = 6;
+                break;
+            case 7:
+                typeProducts = 7;
+                break;
             default:
                 System.out.println("Неверный выбор, повторите попытку!");
                 break;
         }
+        findNameProducts();
     }
 
-    private void searchNameSmartphone(ArrayList<Smartphone> smartphones) {
-        for (int i = 0; i < smartphones.size(); i++) {
-            System.out.println(smartphones.get(i).getName());
+    private void findNameProducts() {
+        System.out.println("Введите имя продуката");
+        String name = String.valueOf(new Scanner(System.in));
+        switch (typeProducts) {
+            case 1:
+                searchNameSmartphones(name);
+                break;
+            case 2:
+                searchNameComputers(name);
+                break;
+            case 3:
+                searchNameVegetables(name);
+                break;
+            case 4:
+                searchNameSweets(name);
+                break;
+            case 5:
+                searchNameDrinkingWaters(name);
+                break;
+            case 6:
+                searchNameSweetDrinks(name);
+                break;
+            case 7:
+                searchNameClothes(name);
+                break;
         }
+
+    }
+
+    private void searchNameSmartphones(String name) {
+
+    }
+
+    private void searchNameComputers(String name) {
+    }
+
+    private void searchNameSweets(String name) {
+    }
+
+    private void searchNameVegetables(String name) {
+    }
+
+    private void searchNameDrinkingWaters(String name) {
+    }
+
+    private void searchNameSweetDrinks(String name) {
+    }
+
+    private void searchNameClothes(String name) {
     }
 
 
@@ -83,72 +131,28 @@ public class Store extends SubscriptionManager{
         return value;
     }
 
-
-
-
-
-
-
-
-
-    public double getPurse() {
-        return purse;
-    }
-
-    public void setPurse(double purse) {
-        this.purse = purse;
-    }
-
-    public ArrayList<Clothes> getClothes() {
-        return clothes;
-    }
-
     public void setClothes(ArrayList<Clothes> clothes) {
         this.clothes = clothes;
-    }
-
-    public ArrayList<Computer> getComputers() {
-        return computers;
     }
 
     public void setComputers(ArrayList<Computer> computers) {
         this.computers = computers;
     }
 
-    public ArrayList<Smartphone> getSmartphones() {
-        return smartphones;
-    }
-
     public void setSmartphones(ArrayList<Smartphone> smartphones) {
         this.smartphones = smartphones;
-    }
-
-    public ArrayList<DrinkingWater> getDrinkingWaters() {
-        return drinkingWaters;
     }
 
     public void setDrinkingWaters(ArrayList<DrinkingWater> drinkingWaters) {
         this.drinkingWaters = drinkingWaters;
     }
 
-    public ArrayList<SweetDrinks> getSweetDrinks() {
-        return sweetDrinks;
-    }
-
     public void setSweetDrinks(ArrayList<SweetDrinks> sweetDrinks) {
         this.sweetDrinks = sweetDrinks;
     }
 
-    public ArrayList<Sweets> getSweets() {
-        return sweets;
-    }
-
     public void setSweets(ArrayList<Sweets> sweets) {
         this.sweets = sweets;
-    }
-
-    public ArrayList<Vegetables> getVegetables() {
-        return vegetables;
     }
 
     public void setVegetables(ArrayList<Vegetables> vegetables) {
