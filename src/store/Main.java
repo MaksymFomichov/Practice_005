@@ -13,6 +13,8 @@ public class Main {
 
     public static void main(String[] args) {
         store = new Store();
+
+        // заполняем начальные данные
         addUsers();
         addSmartphones();
         addComputers();
@@ -21,6 +23,9 @@ public class Main {
         addDrinkingWaters();
         addSweetDrinks();
         addSweets();
+
+        // запуск интрфейса через командную строку
+        store.startMenu();
     }
 
     private static void addUsers() {
@@ -81,7 +86,7 @@ public class Main {
         phone3.setPrice(256.25);
         phone3.setQuantity(546544);
 
-        smartphones.add(phone3);
+        smartphones.add(phone1);
         smartphones.add(phone2);
         smartphones.add(phone3);
 
@@ -145,7 +150,7 @@ public class Main {
         tomato.setId("veg0001");
         tomato.setName("помидор");
         tomato.setPrice(0.2);
-        tomato.setQuantity(31);
+        tomato.setQuantity(301);
         tomato.setDescription("супер пупер помидор");
         tomato.setBrand("желтенький");
 
@@ -154,7 +159,7 @@ public class Main {
         pepper.setId("veg0002");
         pepper.setName("перец");
         pepper.setPrice(20);
-        pepper.setQuantity(31);
+        pepper.setQuantity(121);
         pepper.setDescription("супер пупер перец");
         pepper.setBrand("острый");
 
@@ -163,7 +168,7 @@ public class Main {
         cucumber.setId("veg0003");
         cucumber.setName("огурец");
         cucumber.setPrice(7);
-        cucumber.setQuantity(31);
+        cucumber.setQuantity(466);
         cucumber.setDescription("супер пупер огурец");
         cucumber.setBrand("длинный");
 
