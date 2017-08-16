@@ -7,9 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Store extends SubscriptionManager {
+public class Store {
     private double purse;
     private int typeProducts;
+    private int choice;
     private List<Product> clothes = new ArrayList<>();
     private List<Product> computers = new ArrayList<>();
     private List<Product> smartphones = new ArrayList<>();
@@ -17,6 +18,7 @@ public class Store extends SubscriptionManager {
     private List<Product> sweetDrinks = new ArrayList<>();
     private List<Product> sweets = new ArrayList<>();
     private List<Product> vegetables = new ArrayList<>();
+    private SubscriptionManager subscriptionManager = new SubscriptionManager();
 
     public void startMenu() {
         System.out.println("Выберите действие:");
@@ -24,18 +26,16 @@ public class Store extends SubscriptionManager {
         System.out.println("2 - принять товар");
         System.out.println("3 - продать товар");
         System.out.println("4 - выход");
-
-        switch (checkInt()) {
+        choice = checkInt();
+        switch (choice) {
             case 1:
-                selectCategory();
+                selectCategory(choice);
                 break;
             case 2:
-                System.out.println("Пока не работает");
-                startMenu();
+                selectCategory(choice);
                 break;
             case 3:
-                System.out.println("Пока не работает");
-                startMenu();
+                selectCategory(choice);
                 break;
             case 4:
                 System.exit(0);
@@ -45,7 +45,7 @@ public class Store extends SubscriptionManager {
         }
     }
 
-    private void selectCategory() {
+    private void selectCategory(int choice) {
         System.out.println("Выберите категорию:");
         System.out.println("1 - смартфон");
         System.out.println("2 - компьютер");
@@ -58,25 +58,67 @@ public class Store extends SubscriptionManager {
 
         switch (checkInt()) {
             case 1:
-                searchName(smartphones, findNameProducts());
+                if (choice == 1) {
+                    searchName(smartphones, findText());
+                } else if (choice == 2) {
+                    getGoods(smartphones, findText());
+                } else if (choice == 3) {
+                    sellGoods(smartphones, findText());
+                }
                 break;
             case 2:
-                searchName(computers, findNameProducts());
+                if (choice == 1) {
+                    searchName(computers, findText());
+                } else if (choice == 2) {
+                    getGoods(computers, findText());
+                } else if (choice == 3) {
+                    sellGoods(smartphones, findText());
+                }
                 break;
             case 3:
-                searchName(vegetables, findNameProducts());
+                if (choice == 1) {
+                    searchName(vegetables, findText());
+                } else if (choice == 2) {
+                    getGoods(vegetables, findText());
+                } else if (choice == 3) {
+                    sellGoods(smartphones, findText());
+                }
                 break;
             case 4:
-                searchName(sweets, findNameProducts());
+                if (choice == 1) {
+                    searchName(sweets, findText());
+                } else if (choice == 2) {
+                    getGoods(sweets, findText());
+                } else if (choice == 3) {
+                    sellGoods(smartphones, findText());
+                }
                 break;
             case 5:
-                searchName(drinkingWaters, findNameProducts());
+                if (choice == 1) {
+                    searchName(drinkingWaters, findText());
+                } else if (choice == 2) {
+                    getGoods(drinkingWaters, findText());
+                } else if (choice == 3) {
+                    sellGoods(smartphones, findText());
+                }
                 break;
             case 6:
-                searchName(sweetDrinks, findNameProducts());
+                if (choice == 1) {
+                    searchName(sweetDrinks, findText());
+                } else if (choice == 2) {
+                    getGoods(sweetDrinks, findText());
+                } else if (choice == 3) {
+                    sellGoods(smartphones, findText());
+                }
                 break;
             case 7:
-                searchName(clothes, findNameProducts());
+                if (choice == 1) {
+                    searchName(clothes, findText());
+                } else if (choice == 2) {
+                    getGoods(clothes, findText());
+                } else if (choice == 3) {
+                    sellGoods(smartphones, findText());
+                }
                 break;
             case 8:
                 startMenu();
@@ -89,24 +131,53 @@ public class Store extends SubscriptionManager {
 
     private void searchName(List<Product> list, String name) {
         if (name.equals("0")) {
-            selectCategory();
+            selectCategory(choice);
         } else {
             for (int i = 0; i < list.size(); i++) {
                 if (name.equals(list.get(i).getName())) {
                     list.get(i).show();
                     System.out.println();
-                    searchName(list, findNameProducts());
+                    searchName(list, findText());
                     break;
                 }
             }
             System.out.println("Товар с таким именем не найден!");
             System.out.println();
-            searchName(list, findNameProducts());
+            searchName(list, findText());
         }
     }
 
-    private String findNameProducts() {
-        System.out.println("Введите имя искомого продукта или 0 для выхода в предыдущее меню:");
+    private void getGoods(List<Product> list, String name) {
+        if (name.equals("0")) {
+            selectCategory(choice);
+        } else {
+            for (int i = 0; i < list.size(); i++) {
+                if (name.equals(list.get(i).getId())) {
+                    System.out.println("Есть на складе: " + list.get(i).getQuantity() + " шт.");
+                    System.out.println("Введите поставленное количество товара c id:");
+                    list.get(i).setQuantity(list.get(i).getQuantity() + checkInt());
+                    System.out.println("Стало на складе: " + list.get(i).getQuantity() + " шт.");
+                    System.out.println();
+                    searchName(list, findText());
+                    break;
+                }
+            }
+            System.out.println("Товар с таким id не найден!");
+            System.out.println();
+            getGoods(list, findText());
+        }
+    }
+
+    private void sellGoods(List<Product> list, String name) {
+
+    }
+
+    private String findText() {
+        if (choice == 1) {
+            System.out.println("Введите имя искомого продукта или 0 для выхода в предыдущее меню:");
+        } else {
+            System.out.println("Введите id искомого продукта или 0 для выхода в предыдущее меню:");
+        }
         return new Scanner(System.in).nextLine();
     }
 
@@ -181,5 +252,9 @@ public class Store extends SubscriptionManager {
 
     public void setVegetables(List<Product> vegetables) {
         this.vegetables = vegetables;
+    }
+
+    public SubscriptionManager getSubscriptionManager() {
+        return subscriptionManager;
     }
 }

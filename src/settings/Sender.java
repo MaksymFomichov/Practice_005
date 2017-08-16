@@ -1,4 +1,4 @@
-package store.mail;
+package settings;
 
 import java.util.Properties;
 

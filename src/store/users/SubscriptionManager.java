@@ -1,6 +1,6 @@
 package store.users;
 
-import store.mail.Sender;
+import settings.Sender;
 
 import java.util.ArrayList;
 

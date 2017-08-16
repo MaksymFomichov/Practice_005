@@ -1,5 +1,6 @@
 package store;
 
+import settings.CheckInt;
 import store.products.Product;
 import store.products.clothes.Brand;
 import store.products.clothes.Clothes;
@@ -9,6 +10,7 @@ import store.users.User;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     private static Store store;
@@ -26,18 +28,38 @@ public class Main {
         addSweetDrinks();
         addSweets();
 
-        // запуск интрфейса через командную строку
-        store.startMenu();
+        startMenu();
+    }
+
+    public static void startMenu() {
+        System.out.println("Выберите действие:");
+        System.out.println("1 - магазин");
+        System.out.println("2 - отправить письмо");
+        System.out.println("3 - выход");
+        switch (new CheckInt().checkInt()) {
+            case 1:
+                store.startMenu();
+                break;
+            case 2:
+                System.out.println("Введите текст письма:");
+                store.sendMessage(new Scanner(System.in).nextLine());
+                break;
+            case 3:
+                System.exit(0);
+            default:
+                System.out.println("Неверный выбор, повторите попытку!");
+                break;
+        }
     }
 
     private static void addUsers() {
-        store.addUser(new User("id001", "Максим", "m.fomichov@gmail.com", "12.01.2017", true));
-        store.addUser(new User("id002", "Петр", "defun_android@ukr.net", "31.02.2017", true));
-        store.addUser(new User("id003", "Алексей", "aleksey@gmail.com", "08.03.2017", false));
-        store.addUser(new User("id004", "Егор", "egor@gmail.com", "04.04.2017", false));
-        store.addUser(new User("id005", "Денис", "denis@gmail.com", "21.05.2017", false));
-        store.addUser(new User("id006", "Александр", "alex@gmail.com", "17.06.2017", false));
-        store.addUser(new User("id007", "Михаил", "miho@gmail.com", "11.07.2017", false));
+        store.getSubscriptionManager().addUser(new User("id001", "Максим", "m.fomichov@gmail.com", "12.01.2017", true));
+        store.getSubscriptionManager().addUser(new User("id002", "Петр", "defun_android@ukr.net", "31.02.2017", true));
+        store.getSubscriptionManager().addUser(new User("id003", "Алексей", "aleksey@gmail.com", "08.03.2017", false));
+        store.getSubscriptionManager().addUser(new User("id004", "Егор", "egor@gmail.com", "04.04.2017", false));
+        store.getSubscriptionManager().addUser(new User("id005", "Денис", "denis@gmail.com", "21.05.2017", false));
+        store.getSubscriptionManager().addUser(new User("id006", "Александр", "alex@gmail.com", "17.06.2017", false));
+        store.getSubscriptionManager().addUser(new User("id007", "Михаил", "miho@gmail.com", "11.07.2017", false));
     }
 
     private static void addSmartphones() {
